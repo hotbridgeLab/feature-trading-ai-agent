@@ -3,7 +3,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-mkdir -p src/{exchange,http,indicators,analysis,ai,strategies,risk,bot,portfolio} docs config scripts
+mkdir -p src/{exchange,http,indicators,analysis,ai/prompts,strategies,risk,bot,portfolio} docs config scripts
 
 commit() { git add -A; git commit -m "$1"; }
 
