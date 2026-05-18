@@ -42,7 +42,12 @@ export class BybitFutures implements FuturesExchange {
   }
   async setLeverage(symbol: string, leverage: number): Promise<void> {
     const body = JSON.stringify({ category: "linear", symbol, buyLeverage: String(leverage), sellLeverage: String(leverage) });
-    ok(await httpJson(`${BASE}/v5/position/set-leverage`, { method: "POST", headers: hdr(body, "application/json"), body }));
+    ok(
+      await httpJson<{ retCode: number; retMsg: string; result: unknown }>(
+        `${BASE}/v5/position/set-leverage`,
+        { method: "POST", headers: hdr(body, "application/json"), body }
+      )
+    );
   }
   async placeOrder(req: OrderRequest): Promise<OrderResult> {
     const body = JSON.stringify({ category: "linear", symbol: req.symbol, side: req.side === "buy" ? "Buy" : "Sell", orderType: req.type === "market" ? "Market" : "Limit", qty: String(req.amount), ...(req.reduceOnly ? { reduceOnly: true } : {}) });
@@ -51,6 +56,11 @@ export class BybitFutures implements FuturesExchange {
   }
   async cancelAll(symbol: string): Promise<void> {
     const body = JSON.stringify({ category: "linear", symbol });
-    ok(await httpJson(`${BASE}/v5/order/cancel-all`, { method: "POST", headers: hdr(body, "application/json"), body }));
+    ok(
+      await httpJson<{ retCode: number; retMsg: string; result: unknown }>(
+        `${BASE}/v5/order/cancel-all`,
+        { method: "POST", headers: hdr(body, "application/json"), body }
+      )
+    );
   }
 }

@@ -1,3 +1,4 @@
+import { formatError } from "./errors";
 import { assertCredentials } from "./credentials";
 import { logVersion, rootLog } from "./logger";
 import { onShutdown } from "./signals";
@@ -11,6 +12,6 @@ async function main(): Promise<void> {
 }
 
 void main().catch((e) => {
-  rootLog.error(e instanceof Error ? e.message : e);
+  rootLog.error(formatError(e));
   process.exit(1);
 });

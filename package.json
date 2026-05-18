@@ -15,7 +15,7 @@
     "agent": "tsx src/agent-run.ts",
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "check": "npm run typecheck"
+    "check": "npm run typecheck && npm run build"
   },
   "engines": {
     "node": ">=20"
