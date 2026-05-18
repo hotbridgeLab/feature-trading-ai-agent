@@ -1,0 +1,6 @@
+{
+  "pollIntervalMs": 60000,
+  "aiTemperature": 0.2,
+  "klinesInterval": "15m",
+  "klinesLimit": 120
+}
