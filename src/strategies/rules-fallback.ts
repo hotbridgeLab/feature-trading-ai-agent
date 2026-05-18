@@ -3,7 +3,7 @@ import type { StrategySignal } from "../types";
 
 export const rulesFallbackStrategy: AgentStrategy = {
   name: "rules-fallback",
-  evaluate(ctx): StrategySignal {
+  async evaluate(ctx): Promise<StrategySignal> {
     const t = ctx.technical;
     const long = ctx.positions.some((p) => p.side === "long");
     const short = ctx.positions.some((p) => p.side === "short");

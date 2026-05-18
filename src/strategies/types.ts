@@ -3,5 +3,5 @@ import type { StrategySignal } from "../types";
 
 export interface AgentStrategy {
   readonly name: string;
-  evaluate(ctx: MarketContext): Promise<StrategySignal> | StrategySignal;
+  evaluate(ctx: MarketContext): Promise<StrategySignal>;
 }

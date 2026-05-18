@@ -14,7 +14,7 @@ export class HybridStrategy implements AgentStrategy {
   async evaluate(ctx: MarketContext): Promise<StrategySignal> {
     const aiSignal = await this.ai.evaluate(ctx);
     if (aiSignal.action !== "hold") return aiSignal;
-    const ruleSignal = rulesFallbackStrategy.evaluate(ctx);
+    const ruleSignal = await rulesFallbackStrategy.evaluate(ctx);
     if (ruleSignal.action !== "hold") {
       log.info("Hybrid using rules fallback:", ruleSignal.reason);
     }
