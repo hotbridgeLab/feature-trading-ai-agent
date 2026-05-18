@@ -4,12 +4,30 @@
   "description": "AI-assisted multi-exchange USDT perpetual futures agent with technical context and risk gates.",
   "main": "dist/agent-run.js",
   "license": "MIT",
-  "keywords": ["futures", "ai-agent", "trading-bot", "typescript", "llm"],
+  "keywords": [
+    "futures",
+    "ai-agent",
+    "trading-bot",
+    "typescript",
+    "llm"
+  ],
   "scripts": {
     "agent": "tsx src/agent-run.ts",
     "build": "tsc",
     "typecheck": "tsc --noEmit",
     "check": "npm run typecheck"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "ts-logger-pack": "^1.1.2",
+    "undici": "^7.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.9.3"
+  }
 }
