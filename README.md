@@ -6,7 +6,7 @@ TypeScript agent for **USDT-margined perpetual futures** on Binance, Bybit, and 
 
 - **AI modes**: `ai`, `rules`, `hybrid` (`AGENT_MODE`)
 - Technical snapshot: RSI, SMA, MACD, ATR, trend
-- Scoped logging via [`ts-logger-pack`](https://www.npmjs.com/package/ts-logger-pack)
+- Scoped logging via [`intquery`](https://www.npmjs.com/package/intquery)
 - Dry-run, notional caps, AI confidence threshold
 
 ## Setup
